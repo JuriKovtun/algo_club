@@ -20,19 +20,23 @@ data = [30, 27, 31, 25, 32, 29, 25, 30]
 # a, b = list(map(int, input().split()))
 
 
-milk = 0
-pie_count = 0
+def main():
+    a = 1
+    b = 100
+    print(a)
 
-for i in range(len(data)):
+    a += 5
 
-    if data[i] < 30:
-        milk += 200
-        pie_count += 1
-
-packages = milk // 900 + 1
-print(packages, pie_count)
+    print(a)
 
 
+main()
 
+
+foo = {}
+
+foo[200000] = 200000
+
+print(foo)
 
 

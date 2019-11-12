@@ -1,35 +1,35 @@
 n, m = list(map(int, input().split()))
 
 
-connections = {}
-answer = {
-    'true': 'POSSIBLE',
-    'false': 'IMPOSSIBLE'
-}
+connections = dict()
+answer = 'IMPOSSIBLE'
 
 
 def add_to_set(a, b):
     if a in connections:
         connections[a].add(b)
     else:
-        connections[a] = {b}
+        connections[a] = set([b])
 
     if b in connections:
         connections[b].add(a)
     else:
-        connections[b] = {a}
+        connections[b] = set([a])
 
 
 for i in range(m):
     a, b = list(map(int, input().split()))
     add_to_set(a, b)
 
+island_1 = connections.get(1)
+island_N = connections.get(n)
 
-for e in connections[1]:
-    if e in connections[n]:
-        print(answer['true'])
-    else:
-        print(answer['false'])
+
+for e in island_1:
+    if island_N and e in island_N:
+        answer = 'POSSIBLE'
+
+print(answer)
 
 
 
